@@ -15,3 +15,4 @@ C:\Users\Fabiola\Desktop\CSharp\Sortings\Sortings\obj\Debug\net8.0\refint\Sortin
 C:\Users\Fabiola\Desktop\CSharp\Sortings\Sortings\obj\Debug\net8.0\Sortings.pdb
 C:\Users\Fabiola\Desktop\CSharp\Sortings\Sortings\obj\Debug\net8.0\Sortings.genruntimeconfig.cache
 C:\Users\Fabiola\Desktop\CSharp\Sortings\Sortings\obj\Debug\net8.0\ref\Sortings.dll
+C:\Users\Fabiola\Desktop\CSharp\Sortings\Sortings\obj\Debug\net8.0\Sortings.sourcelink.json

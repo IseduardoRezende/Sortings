@@ -4,63 +4,21 @@
     {
         public static void Sort(T[] values, OrderType orderType = OrderType.Asc)
         {
-            if (values == null || !values.Any())
-                return;
+            ValidateArray(values);
 
             switch (orderType)
             {
                 case OrderType.Asc: LoopForAsc(values); break;
                 case OrderType.Desc: LoopForDesc(values); break;
-                default: return;
+                default: throw new ArgumentException($"Invalid OrderType: {orderType}.");
             }
-        }
-
-        public static bool IsSorted(T[] values, OrderType orderType = OrderType.Asc)
-        {
-            if (values is null || !values.Any())
-                return false;
-
-            return orderType switch
-            {
-                OrderType.Asc => IsSortedAsc(values),
-                OrderType.Desc => IsSortedDesc(values),
-                _ => false
-            };
-        }
-
-        private static bool IsSortedAsc(T[] values)
-        {
-            if (values is null || !values.Any())
-                return false;
-
-            for (int i = 0; i < values.Length - 1; i++)
-            {
-                //Verifica se o array está em ordem ascendente
-                if (values[i].CompareTo(values[i + 1]) > 0)
-                    return false;
-            }
-
-            return true;
-        }
-
-        private static bool IsSortedDesc(T[] values)
-        {
-            if (values is null || !values.Any())
-                return false;
-
-            for (int i = 0; i < values.Length - 1; i++)
-            {
-                //Verifica se o array está em ordem descendente
-                if (values[i].CompareTo(values[i + 1]) < 0)
-                    return false;
-            }
-
-            return true;
         }
 
         private static void LoopForAsc(T[] values)
         {
-            if (values is null || !values.Any() || IsSortedAsc(values))
+            ValidateArray(values);
+
+            if (IsSortedAsc(values))
                 return;
 
             T changer;
@@ -85,7 +43,9 @@
 
         private static void LoopForDesc(T[] values)
         {
-            if (values is null || !values.Any() || IsSortedDesc(values))
+            ValidateArray(values);
+
+            if (IsSortedDesc(values))
                 return;
 
             T changer;
@@ -106,6 +66,55 @@
 
                 numbersLength--;
             }
+        }
+
+        public static bool IsSorted(T[] values, OrderType orderType = OrderType.Asc)
+        {
+            ValidateArray(values);
+
+            return orderType switch
+            {
+                OrderType.Asc => IsSortedAsc(values),
+                OrderType.Desc => IsSortedDesc(values),
+                _ => throw new ArgumentException($"Invalid OrderType: {orderType}.")
+            };
+        }
+
+        private static bool IsSortedAsc(T[] values)
+        {
+            ValidateArray(values);
+
+            for (int i = 0; i < values.Length - 1; i++)
+            {
+                //Verifica se o array está em ordem ascendente
+                if (values[i].CompareTo(values[i + 1]) > 0)
+                    return false;
+            }
+
+            return true;
+        }
+
+        private static bool IsSortedDesc(T[] values)
+        {
+            ValidateArray(values);
+            
+            for (int i = 0; i < values.Length - 1; i++)
+            {
+                //Verifica se o array está em ordem descendente
+                if (values[i].CompareTo(values[i + 1]) < 0)
+                    return false;
+            }
+
+            return true;
+        }
+        
+        private static void ValidateArray(T[] values)
+        {
+            if (values is null)
+                throw new ArgumentNullException(nameof(values), $"The {typeof(T)} array cannot be null.");
+
+            if (!values.Any())
+                throw new ArgumentException($"The {typeof(T)} array is empty.", nameof(values));
         }
     }
 }
