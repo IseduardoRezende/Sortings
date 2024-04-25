@@ -1,0 +1,41 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Sortings/1.0.0": {
+        "dependencies": {
+          "Bogus": "35.5.0"
+        },
+        "runtime": {
+          "Sortings.dll": {}
+        }
+      },
+      "Bogus/35.5.0": {
+        "runtime": {
+          "lib/net6.0/Bogus.dll": {
+            "assemblyVersion": "35.5.0.0",
+            "fileVersion": "35.5.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Sortings/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Bogus/35.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-iCXszbIvvxgfb01bPe/s3R6pQSKX6rpcQWqM7wqDt+lsMogR6fkSWBwqOxLpdXmMB7mgZNNk2hm2M1shoIiekA==",
+      "path": "bogus/35.5.0",
+      "hashPath": "bogus.35.5.0.nupkg.sha512"
+    }
+  }
+}

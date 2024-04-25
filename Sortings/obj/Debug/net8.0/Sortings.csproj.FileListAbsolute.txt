@@ -1,0 +1,17 @@
+C:\Users\Fabiola\Desktop\CSharp\Sortings\Sortings\bin\Debug\net8.0\Sortings.exe
+C:\Users\Fabiola\Desktop\CSharp\Sortings\Sortings\bin\Debug\net8.0\Sortings.deps.json
+C:\Users\Fabiola\Desktop\CSharp\Sortings\Sortings\bin\Debug\net8.0\Sortings.runtimeconfig.json
+C:\Users\Fabiola\Desktop\CSharp\Sortings\Sortings\bin\Debug\net8.0\Sortings.dll
+C:\Users\Fabiola\Desktop\CSharp\Sortings\Sortings\bin\Debug\net8.0\Sortings.pdb
+C:\Users\Fabiola\Desktop\CSharp\Sortings\Sortings\bin\Debug\net8.0\Bogus.dll
+C:\Users\Fabiola\Desktop\CSharp\Sortings\Sortings\obj\Debug\net8.0\Sortings.csproj.AssemblyReference.cache
+C:\Users\Fabiola\Desktop\CSharp\Sortings\Sortings\obj\Debug\net8.0\Sortings.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Fabiola\Desktop\CSharp\Sortings\Sortings\obj\Debug\net8.0\Sortings.AssemblyInfoInputs.cache
+C:\Users\Fabiola\Desktop\CSharp\Sortings\Sortings\obj\Debug\net8.0\Sortings.AssemblyInfo.cs
+C:\Users\Fabiola\Desktop\CSharp\Sortings\Sortings\obj\Debug\net8.0\Sortings.csproj.CoreCompileInputs.cache
+C:\Users\Fabiola\Desktop\CSharp\Sortings\Sortings\obj\Debug\net8.0\Sortings.csproj.CopyComplete
+C:\Users\Fabiola\Desktop\CSharp\Sortings\Sortings\obj\Debug\net8.0\Sortings.dll
+C:\Users\Fabiola\Desktop\CSharp\Sortings\Sortings\obj\Debug\net8.0\refint\Sortings.dll
+C:\Users\Fabiola\Desktop\CSharp\Sortings\Sortings\obj\Debug\net8.0\Sortings.pdb
+C:\Users\Fabiola\Desktop\CSharp\Sortings\Sortings\obj\Debug\net8.0\Sortings.genruntimeconfig.cache
+C:\Users\Fabiola\Desktop\CSharp\Sortings\Sortings\obj\Debug\net8.0\ref\Sortings.dll
