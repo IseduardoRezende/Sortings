@@ -1,6 +1,6 @@
 ﻿namespace Sortings
 {
-    public static class Bubble
+    public static class Selection
     {
         public static void Sort<T>(T[] values, OrderType orderType = OrderType.Asc) where T : IComparable<T>
         {
@@ -21,23 +21,25 @@
             if (IsSortedAsc(values))
                 return;
 
+            int smaller;
             T changer;
-            int numbersLength = values.Length;
 
-            while (numbersLength > 0)
+            for (int i = 0; i < values.Length; i++)
             {
-                for (int i = 0; i < numbersLength - 1; i++)
+                smaller = i;
+
+                for (int j = i + 1; j < values.Length; j++)
                 {
-                    //Caso o valor seja maior deverá ir para outros índices
-                    if (values[i].CompareTo(values[i + 1]) > 0)
-                    {
-                        changer = values[i];
-                        values[i] = values[i + 1];
-                        values[i + 1] = changer;
-                    }
+                    if (values[j].CompareTo(values[smaller]) < 0)
+                        smaller = j;
                 }
 
-                numbersLength--;
+                if (i != smaller)
+                {
+                    changer = values[i];
+                    values[i] = values[smaller];
+                    values[smaller] = changer;
+                }
             }
         }
 
@@ -48,23 +50,25 @@
             if (IsSortedDesc(values))
                 return;
 
+            int bigger;
             T changer;
-            int numbersLength = values.Length;
 
-            while (numbersLength > 0)
+            for (int i = 0; i < values.Length; i++)
             {
-                for (int i = 0; i < numbersLength - 1; i++)
+                bigger = i;
+
+                for (int j = i + 1; j < values.Length; j++)
                 {
-                    //Caso o valor seja menor deverá ir para outros índices
-                    if (values[i].CompareTo(values[i + 1]) < 0)
-                    {
-                        changer = values[i];
-                        values[i] = values[i + 1];
-                        values[i + 1] = changer;
-                    }
+                    if (values[j].CompareTo(values[bigger]) > 0)
+                        bigger = j;
                 }
 
-                numbersLength--;
+                if (i != bigger)
+                {
+                    changer = values[i];
+                    values[i] = values[bigger];
+                    values[bigger] = changer;
+                }
             }
         }
 
@@ -84,11 +88,19 @@
         {
             Validation.ValidateArray(values);
 
-            for (int i = 0; i < values.Length - 1; i++)
+            int smaller;
+
+            for (int i = 0; i < values.Length; i++)
             {
-                //Verifica se o array está em ordem ascendente
-                if (values[i].CompareTo(values[i + 1]) > 0)
-                    return false;
+                smaller = i;
+
+                for (int j = i + 1; j < values.Length; j++)
+                {
+                    if (values[j].CompareTo(values[smaller]) < 0)
+                    {
+                        return false;
+                    }
+                }
             }
 
             return true;
@@ -97,15 +109,23 @@
         private static bool IsSortedDesc<T>(T[] values) where T : IComparable<T>
         {
             Validation.ValidateArray(values);
-            
-            for (int i = 0; i < values.Length - 1; i++)
+
+            int bigger;
+
+            for (int i = 0; i < values.Length; i++)
             {
-                //Verifica se o array está em ordem descendente
-                if (values[i].CompareTo(values[i + 1]) < 0)
-                    return false;
+                bigger = i;
+
+                for (int j = i + 1; j < values.Length; j++)
+                {
+                    if (values[j].CompareTo(values[bigger]) > 0)
+                    {
+                        return false;
+                    }
+                }
             }
 
             return true;
-        }              
+        }
     }
 }

@@ -7,16 +7,76 @@ Console.WriteLine("Hello, World!");
 var faker = new Faker();
 
 //Strings:
-var strings = Enumerable.Range(1, 10).Select(_ => new string(faker.Random.AlphaNumeric(length: 5))).ToArray();
+var strings = Enumerable.Range(1, 10_000).Select(_ => new string(faker.Random.AlphaNumeric(length: 6))).ToArray();
 
 //Chars:
-var chars = faker.Random.Chars('A', 'Z', count: 10);
+var chars = faker.Random.Chars('A', 'Z', count: 10_000);
 
 //Ints:
-var numbers = Enumerable.Range(1, 10).Select(_ => faker.Random.Int(-100, 100)).ToArray();
+var numbers = Enumerable.Range(1, 100_000).Select(_ => faker.Random.Int(-10_000, 10_000)).ToArray();
 
 //Inicializando Sorting Type:
-var orderType = OrderType.Asc;
+var orderType = OrderType.Desc;
+
+#region Selection
+
+#region Selection with Strings
+
+Console.WriteLine("Before Selection Sort:");
+strings.ToList().ForEach(Console.WriteLine);
+
+Console.WriteLine($"Is Sorted ({orderType}): {Selection.IsSorted(strings, orderType)}");
+
+Selection.Sort(strings, orderType);
+
+Console.WriteLine("After Selection Sort:");
+strings.ToList().ForEach(Console.WriteLine);
+
+Console.WriteLine($"Is Sorted ({orderType}): {Selection.IsSorted(strings, orderType)}");
+
+#endregion
+
+Console.ReadLine();
+
+#region Selection with Chars
+
+Console.WriteLine("Before Selection Sort:");
+chars.ToList().ForEach(Console.WriteLine);
+
+Console.WriteLine($"Is Sorted ({orderType}): {Selection.IsSorted(chars, orderType)}");
+
+Selection.Sort(chars, orderType);
+
+Console.WriteLine("After Selection Sort:");
+chars.ToList().ForEach(Console.WriteLine);
+
+Console.WriteLine($"Is Sorted ({orderType}): {Selection.IsSorted(chars, orderType)}");
+
+#endregion
+
+Console.ReadLine();
+
+#region Selection with Ints
+
+Console.WriteLine("Before Selection Sort:");
+numbers.ToList().ForEach(Console.WriteLine);
+
+Console.WriteLine($"Is Sorted ({orderType}): {Selection.IsSorted(numbers, orderType)}");
+
+Selection.Sort(numbers, orderType);
+
+Console.WriteLine("After Selection Sort:");
+numbers.ToList().ForEach(Console.WriteLine);
+
+Console.WriteLine($"Is Sorted ({orderType}): {Selection.IsSorted(numbers, orderType)}");
+
+#endregion
+
+Console.ReadLine();
+
+#endregion
+
+#region Bubble
 
 #region Bubble with Strings
 
@@ -26,15 +86,15 @@ strings.ToList().ForEach(Console.WriteLine);
 orderType = OrderType.Asc;
 
 Console.WriteLine($"Is Sorted ? ({orderType})");
-Console.WriteLine(Bubble<string>.IsSorted(strings));
+Console.WriteLine(Bubble.IsSorted(strings));
 
-Bubble<string>.Sort(strings);
+Bubble.Sort(strings);
 
 Console.WriteLine($"After Bubble Sort: \nType: ({orderType})");
 strings.ToList().ForEach(Console.WriteLine);
 
 Console.WriteLine($"Is Sorted ? ({orderType})");
-Console.WriteLine(Bubble<string>.IsSorted(strings));
+Console.WriteLine(Bubble.IsSorted(strings));
 
 #endregion
 
@@ -48,15 +108,15 @@ chars.ToList().ForEach(Console.WriteLine);
 orderType = OrderType.Desc;
 
 Console.WriteLine($"Is Sorted ? ({orderType})");
-Console.WriteLine(Bubble<char>.IsSorted(chars, orderType));
+Console.WriteLine(Bubble.IsSorted(chars, orderType));
 
-Bubble<char>.Sort(chars, orderType);
+Bubble.Sort(chars, orderType);
 
 Console.WriteLine($"After Bubble Sort: \nType: ({orderType})");
 chars.ToList().ForEach(Console.WriteLine);
 
 Console.WriteLine($"Is Sorted ? ({orderType})");
-Console.WriteLine(Bubble<char>.IsSorted(chars, orderType));
+Console.WriteLine(Bubble.IsSorted(chars, orderType));
 
 #endregion
 
@@ -70,14 +130,16 @@ numbers.ToList().ForEach(Console.WriteLine);
 orderType = OrderType.Desc;
 
 Console.WriteLine($"Is Sorted ? ({orderType})");
-Console.WriteLine(Bubble<int>.IsSorted(numbers, orderType));
+Console.WriteLine(Bubble.IsSorted(numbers, orderType));
 
-Bubble<int>.Sort(numbers, orderType);
+Bubble.Sort(numbers, orderType);
 
 Console.WriteLine($"After Bubble Sort: \nType: ({orderType})");
 numbers.ToList().ForEach(Console.WriteLine);
 
 Console.WriteLine($"Is Sorted ? ({orderType})");
-Console.WriteLine(Bubble<int>.IsSorted(numbers, orderType));
+Console.WriteLine(Bubble.IsSorted(numbers, orderType));
+
+#endregion
 
 #endregion
